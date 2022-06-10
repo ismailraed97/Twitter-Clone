@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta key word="twitter, clone , cooding" />
+    <title>Twitter clone</title>
+    <link rel="stylesheet" href="twi.css" />
+    <script
+      src="https://kit.fontawesome.com/f33b734a42.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="n-links">
+        <a href="">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <div class="search">
+          <input type="text" placeholder="search twetter" />
+        </div>
+        <a href=""> Home </a>
+
+        <a href=""> Notifcation </a>
+        <a href=""> Messages </a>
+        <a href=""> Profile </a>
+        <a href="">
+          <i class="fa-solid fa-grip-dots"></i>
+        </a>
+      </nav>
+    </header>
+    <!-- the main -->
+
+    <main>
+      <div class="main-flex">
+        <div class="main-s">
+          <div class="home-bar">
+            <span style="color: #1d9bf0">Home</span>
+            <i class="fa-solid fa-star-sharp"></i>
+          </div>
+          <div class="new-tweet">
+            <img class="tweet-img" src="profile.jpeg" alt="" />
+            <div class="new-tw-details">
+              <input
+                class="input"
+                type="text"
+                id="username"
+                placeholder="Right your username"
+              />
+
+              <!-- <input type="text" placeholder="what's happening?" /> -->
+              <textarea
+                class="input"
+                name="tweet"
+                id="tweet"
+                cols="30"
+                rows="5"
+                placeholder="new tweet"
+              ></textarea>
+              <p class="warning"></p>
+              <div class="new-tw-act">
+                <button class="tw-buttom" id="tweet-btn">Tweet</button>
+              </div>
+            </div>
+          </div>
+          <section id="feeds">
+            <h3>Feeds</h3>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
