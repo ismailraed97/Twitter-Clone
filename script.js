@@ -1,16 +1,26 @@
 // html elements
-const usernameInput = document.querySelector("#username");
-const tweetInput = document.querySelector("#tweet");
+const tweetInput = document.querySelector("#tweet-input");
 const tweetBtn = document.querySelector("#tweet-btn");
 const feedsContainer = document.querySelector("#feeds");
 const warningPara = document.querySelector(".warning");
 
-const tweetsArr = JSON.parse(localStorage.getItem("tweets")) || [];
+const tweetsArr = JSON.parse(localStorage.getItem("tweets")) || [
+  {
+    id: 1,
+    username: "Ismail Raed",
+    text: "Hope is the heart of life ❤️",
+    liked: false,
+    retweeted: false,
+    time: "23h",
+  },
+];
 
 // create element functions
 function createElement(text, ele, className, parent, secondClass) {
   const element = document.createElement(ele);
-  element.classList.add(className);
+  if (className) {
+    element.classList.add(className);
+  }
   if (secondClass) {
     element.classList.add(secondClass);
   }
@@ -23,6 +33,14 @@ function createElement(text, ele, className, parent, secondClass) {
   return element;
 }
 
+function createIcon(name, text, parent) {
+  const container = createElement("", "div", "icon-container", parent);
+  const icon = createElement("", "iconify-icon", "", container);
+  icon.icon = name;
+  createElement(text, "p", "icon-text", container);
+  return icon;
+}
+
 // create tweet
 function createTweet(tweet) {
   const tweetContainer = createElement("", "div", "feed-tw", feedsContainer);
@@ -33,15 +51,22 @@ function createTweet(tweet) {
     "feed-tw-details",
     tweetContainer
   );
-  createElement(tweet.username, "p", "tweeter-name", textContainer);
+  const namesContainer = createElement(
+    "",
+    "div",
+    "names-container",
+    textContainer
+  );
+  createElement(tweet.username, "p", "tweeter-name", namesContainer);
+  createElement("@ismailraed97", "p", "username", namesContainer);
+  createElement(tweet.time, "p", "username", namesContainer);
+
   createElement(tweet.text, "p", "tweet-text", textContainer);
   const iconsContainer = createElement("", "div", "tweet-icons", textContainer);
-  const likeIcon = createElement(
-    "",
-    "i",
-    "fa-solid",
-    iconsContainer,
-    "fa-heart"
+  const likeIcon = createIcon(
+    "mdi:cards-heart",
+    Math.floor(Math.random() * 50).toString(),
+    iconsContainer
   );
   likeIcon.style.color = tweet.liked ? "rgb(255, 37, 37)" : "rgb(93, 92, 88)";
   likeIcon.onclick = () => {
@@ -49,13 +74,17 @@ function createTweet(tweet) {
     likeIcon.style.color = tweet.liked ? "rgb(255, 37, 37)" : "rgb(93, 92, 88)";
     localStorage.setItem("tweets", JSON.stringify(tweetsArr));
   };
-  const retweetIcon = createElement(
-    "",
-    "i",
-    "fa-solid",
-    iconsContainer,
-    "fa-retweet"
+  createIcon(
+    "mdi:message-reply-outline",
+    Math.floor(Math.random() * 50).toString(),
+    iconsContainer
   );
+  const retweetIcon = createIcon(
+    "mdi:twitter-retweet",
+    Math.floor(Math.random() * 50).toString(),
+    iconsContainer
+  );
+  retweetIcon.icon = "mdi:twitter-retweet";
   retweetIcon.style.color = tweet.retweeted
     ? "rgb(0, 195, 0)"
     : "rgb(93, 92, 88)";
@@ -85,20 +114,22 @@ function renderTweets() {
 
 // add tweet
 function onSubmit() {
-  if (!tweetInput.value || !usernameInput.value) {
-    warningPara.textContent = "* please fill all fields";
+  if (!tweetInput.value) {
+    warningPara.textContent = "* please add a tweet";
     return;
+  } else {
+    warningPara.textContent = "";
   }
   const tweetObj = {
     id: tweetsArr[0]?.id ? tweetsArr[0].id + 1 : 1,
-    username: usernameInput.value,
+    username: "Ismail Raed",
     text: tweetInput.value,
     liked: false,
     retweeted: false,
+    time: "1m",
   };
   tweetsArr.unshift(tweetObj);
   tweetInput.value = "";
-  usernameInput.value = "";
   localStorage.setItem("tweets", JSON.stringify(tweetsArr));
   renderTweets();
 }

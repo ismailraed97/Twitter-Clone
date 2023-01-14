@@ -5,69 +5,137 @@
     <meta key word="twitter, clone , cooding" />
     <title>Twitter clone</title>
     <link rel="stylesheet" href="twi.css" />
-    <script
-      src="https://kit.fontawesome.com/f33b734a42.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
   </head>
   <body>
-    <header>
-      <nav class="n-links">
-        <a href="">
-          <i class="fa-brands fa-twitter"></i>
-        </a>
-        <div class="search">
-          <input type="text" placeholder="search twetter" />
-        </div>
-        <a href=""> Home </a>
-
-        <a href=""> Notifcation </a>
-        <a href=""> Messages </a>
-        <a href=""> Profile </a>
-        <a href="">
-          <i class="fa-solid fa-grip-dots"></i>
-        </a>
-      </nav>
-    </header>
-    <!-- the main -->
-
     <main>
-      <div class="main-flex">
-        <div class="main-s">
-          <div class="home-bar">
-            <span style="color: #1d9bf0">Home</span>
-            <i class="fa-solid fa-star-sharp"></i>
-          </div>
-          <div class="new-tweet">
-            <img class="tweet-img" src="profile.jpeg" alt="" />
-            <div class="new-tw-details">
-              <input
-                class="input"
-                type="text"
-                id="username"
-                placeholder="Right your username"
-              />
+      <section class="left-section">
+        <a href="">
+          <iconify-icon class="logo" icon="mdi:twitter"></iconify-icon>
+        </a>
+        <ul class="nav-list">
+          <li class="list-item">
+            <a href=""><iconify-icon icon="mdi:house"></iconify-icon>Home</a>
+          </li>
+          <li class="list-item">
+            <a href=""
+              ><iconify-icon icon="ph:hash-light"></iconify-icon>Explore</a
+            >
+          </li>
+          <li class="list-item">
+            <a href=""
+              ><iconify-icon icon="ph:bell"></iconify-icon>Notifications</a
+            >
+          </li>
+          <li class="list-item">
+            <a href=""
+              ><iconify-icon icon="ic:baseline-mail-outline"></iconify-icon
+              >Messages</a
+            >
+          </li>
+          <li class="list-item">
+            <a href=""
+              ><iconify-icon icon="ic:baseline-bookmark-border"></iconify-icon
+              >Bookmarks</a
+            >
+          </li>
+          <li class="list-item">
+            <a href=""
+              ><iconify-icon
+                icon="material-symbols:featured-play-list-outline-rounded"
+              ></iconify-icon
+              >Lists</a
+            >
+          </li>
+          <li class="list-item">
+            <a href=""
+              ><iconify-icon
+                icon="material-symbols:person-outline"
+              ></iconify-icon
+              >Profile</a
+            >
+          </li>
+          <li class="list-item">
+            <a href=""
+              ><iconify-icon icon="material-symbols:more-horiz"></iconify-icon
+              >More</a
+            >
+          </li>
+        </ul>
+        <button class="tweet-btn">Tweet</button>
+        <div class="profile-card">
+          <figure class="profile-image">
+            <img
+              src="./profile.jpeg"
+              alt="profile"
+              width="100%"
+              height="100%"
+            />
+          </figure>
 
-              <!-- <input type="text" placeholder="what's happening?" /> -->
-              <textarea
-                class="input"
-                name="tweet"
-                id="tweet"
-                cols="30"
-                rows="5"
-                placeholder="new tweet"
-              ></textarea>
-              <p class="warning"></p>
-              <div class="new-tw-act">
-                <button class="tw-buttom" id="tweet-btn">Tweet</button>
+          <div class="names">
+            <div class="full-name">Ismail Raed</div>
+            <div class="user-name">@ismailraed</div>
+          </div>
+          <iconify-icon
+            icon="ic:baseline-more-horiz"
+            class="nav-icon"
+          ></iconify-icon>
+        </div>
+      </section>
+      <section class="main-section">
+        <div class="home-bar">
+          <span style="color: #000; font-weight: 600; font-size: 27px"
+            >Home</span
+          >
+          <iconify-icon
+            icon="pepicons-pop:stars"
+            rotate="180deg"
+            style="font-size: 27px"
+          ></iconify-icon>
+        </div>
+        <div class="new-tweet">
+          <img class="tweet-img" src="profile.jpeg" alt="" />
+          <div class="new-tw-details">
+            <input
+              class="input"
+              type="text"
+              id="tweet-input"
+              placeholder="What's hapenning?"
+            />
+            <p class="warning"></p>
+            <div class="new-tw-act">
+              <div class="header-icons-container">
+                <iconify-icon icon="grommet-icons:gallery"></iconify-icon>
+                <iconify-icon icon="ic:outline-gif-box"></iconify-icon>
+                <iconify-icon icon="ic:round-emoji-emotions"></iconify-icon>
+                <iconify-icon
+                  icon="material-symbols:location-on-outline"
+                ></iconify-icon>
               </div>
+              <button class="tw-buttom" id="tweet-btn">Tweet</button>
             </div>
           </div>
-          <section id="feeds">
-            <h3>Feeds</h3>
-          </section>
         </div>
-      </div>
+        <section id="feeds">
+          <h3>Feeds</h3>
+        </section>
+      </section>
+      <section class="right-section">
+        <div class="search">
+          <iconify-icon icon="material-symbols:search"></iconify-icon>
+          <input type="text" id="search" placeholder="Search Twitter" />
+        </div>
+
+        <h2 style="margin-top: 10px">Trends For you</h2>
+
+        <h4>Ronaldo</h4>
+        <h4>Code Academy</h4>
+        <h4>شوشع_الاسطورة#</h4>
+        <h4>مخيم_جنين#</h4>
+        <h4>Palestine</h4>
+        <h4>#World_Cup</h4>
+      </section>
     </main>
     <script src="./script.js"></script>
   </body>
